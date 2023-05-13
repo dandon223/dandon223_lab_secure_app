@@ -17,4 +17,4 @@ jobs:
           docker pull mixeway/scanner:latest
       - name: Run Scan
         run: |
-          docker run -e OSS_USERNAME=daniel.gorniak.stud@pw.edu.pl -e OSS_KEY=dd468f40776a3f93a679cb2d56c86ca27b6e5927 -e MIXEWAY_URL=https://hub.mixeway.io -e MIXEWAY_KEY=87714ee7-c920-477b-8f50-2c061ec87721 -e MIXEWAY_PROJECT_ID=119 -e MODE=STANDALONE -e MIXEWAY_PROJECT_NAME=dandon223_lab_secure_app -e COMMIT_ID=Github actions -e BRANCH=master -v /opt/lab_sec_audit/sast:/opt/sources mixeway/scanner:latest
+          docker run -e OSS_USERNAME=daniel.gorniak.stud@pw.edu.pl -e OSS_KEY=dd468f40776a3f93a679cb2d56c86ca27b6e5927 -e MIXEWAY_URL=https://hub.mixeway.io -e MIXEWAY_KEY=87714ee7-c920-477b-8f50-2c061ec87721 -e MIXEWAY_PROJECT_ID=119 -e MODE=STANDALONE -e MIXEWAY_PROJECT_NAME=dandon223_lab_secure_app -e COMMIT_ID=${{ steps.vars.outputs.sha_short }} -e BRANCH=${{ steps.vars.outputs.branch }} -v /opt/lab_sec_audit/sast:/opt/sources mixeway/scanner:latest
